@@ -1,0 +1,8 @@
+# Turns on the rewriting engine
+RewriteEngine On    
+
+# Creates a rule to format an endpoint for the API call to store diagnostics data
+RewriteRule ^api/diagnostics/([0-9a-zA-Z_-]*)/([0-9a-zA-Z_-]*)$ api.php?chip_id=$1&voltage=$2 [NC,L]
+
+# Creates a rule to format an endpoint to view diagnostics log by chip ID
+RewriteRule ^view/([0-9a-zA-Z_-]*)$ view_log.php?chip_id=$1 [NC,L]
